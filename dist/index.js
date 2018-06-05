@@ -259,7 +259,7 @@
       value: function considerResizing() {
         var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
             _ref$forceCellTableRe = _ref.forceCellTableResize,
-            forceCellTableResize = _ref$forceCellTableRe === undefined ? false : _ref$forceCellTableRe,
+            forceCellTableResize = _ref$forceCellTableRe === undefined ? true : _ref$forceCellTableRe,
             _ref$forceWrapperResi = _ref.forceWrapperResize,
             forceWrapperResize = _ref$forceWrapperResi === undefined ? false : _ref$forceWrapperResi;
 
@@ -404,15 +404,13 @@
 
             //IMPORTANT: minWidth is a necessary property here
             //because display: table-cell desparately wants to be dynamic/minimum in size
-            cells.forEach(function (cell) {
-              return cell.style.width = cell.style.minWidth = '';
-            });
+            cells[1].style.width = cells[1].style.minWidth = '';
 
-            var columnWidth = Math.max(_this4.getNodeSize(cells[0]).width, _this4.getNodeSize(cells[1]).width);
+            var bodyWidth = _this4.getNodeSize(cells[0]).width;
+            var headerWidth = _this4.getNodeSize(cells[1]).width;
 
-            cells.forEach(function (cell) {
-              return cell.style.width = cell.style.minWidth = columnWidth + 'px';
-            });
+            cells[0].style.minWidth = headerWidth + 'px';
+            cells[1].style.minWidth = bodyWidth + 'px';
           };
 
           for (column = 0; column < this.columnCount; column++) {
