@@ -402,6 +402,10 @@
               cells[1] = firstStickyHeaderRowCells[column - _this4.props.stickyColumnCount];
             }
 
+            if (!cells[0] || !cells[1]) {
+              return;
+            }
+
             //IMPORTANT: minWidth is a necessary property here
             //because display: table-cell desparately wants to be dynamic/minimum in size
             cells[1].style.width = cells[1].style.minWidth = '';
