@@ -230,9 +230,11 @@ class StickyTable extends PureComponent {
 
       this.dom.xWrapper.style.maxWidth = `calc(100% - ${this.dom.stickyColumn.offsetWidth}px`;
       this.dom.yWrapper.style.height = `calc(100% - ${this.dom.stickyHeader.offsetHeight}px`;
-
+      
       this.oldWrapperSize = wrapperSize;
+      this.onScrollX()
     }
+
   }
 
   /**
