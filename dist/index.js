@@ -295,6 +295,7 @@
           this.dom.yWrapper.style.height = 'calc(100% - ' + this.dom.stickyHeader.offsetHeight + 'px';
 
           this.oldWrapperSize = wrapperSize;
+          this.onScrollX();
         }
       }
     }, {
