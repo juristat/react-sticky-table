@@ -259,7 +259,7 @@
       value: function considerResizing() {
         var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
             _ref$forceCellTableRe = _ref.forceCellTableResize,
-            forceCellTableResize = _ref$forceCellTableRe === undefined ? true : _ref$forceCellTableRe,
+            forceCellTableResize = _ref$forceCellTableRe === undefined ? false : _ref$forceCellTableRe,
             _ref$forceWrapperResi = _ref.forceWrapperResize,
             forceWrapperResize = _ref$forceWrapperResi === undefined ? false : _ref$forceWrapperResi;
 
@@ -526,7 +526,7 @@
 
         return _react2.default.createElement(
           'div',
-          { className: 'sticky-table ' + (this.props.className || ''), ref: setWrapperElement },
+          { className: 'sticky-table ' + (this.props.className || ''), ref: setWrapperElement, style: this.props.style },
           _react2.default.createElement(
             'div',
             { className: 'x-scrollbar' },

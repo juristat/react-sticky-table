@@ -199,7 +199,7 @@ class StickyTable extends PureComponent {
    * Handle real cell resize events
    * @returns {undefined}
    */
-  considerResizing({forceCellTableResize=true, forceWrapperResize=false} = {}) {
+  considerResizing({forceCellTableResize=false, forceWrapperResize=false} = {}) {
     var wrapperSize = {
       width: this.dom.wrapper.offsetWidth,
       height: this.dom.wrapper.offsetWidth
@@ -448,7 +448,7 @@ class StickyTable extends PureComponent {
     }
 
     return (
-      <div className={'sticky-table ' + (this.props.className || '')} ref={setWrapperElement}>
+      <div className={'sticky-table ' + (this.props.className || '')} ref={setWrapperElement} style={this.props.style}>
         <div className='x-scrollbar'><div></div></div>
         <div className='y-scrollbar'><div></div></div>
         <div className='sticky-table-header-wrapper'>
