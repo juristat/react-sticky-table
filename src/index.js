@@ -216,25 +216,32 @@ class StickyTable extends PureComponent {
     var wrapperSizeChanged = JSON.stringify(wrapperSize) !== JSON.stringify(this.oldWrapperSize);
 
     if (forceCellTableResize || !this.oldTableCellSizes || tableCellSizesChanged) {
-      this.setRowHeights();
-      this.setColumnWidths();
-
+      this.resizeCellTable()
       this.oldTableCellSizes = tableCellSizes;
     }
 
     if (forceWrapperResize || !this.oldWrapperSize || wrapperSizeChanged || tableCellSizesChanged) {
-      this.setScrollBarDims();
-      this.setScrollBarWrapperDims();
-      this.setScrollData();
-      this.handleScroll();
-
-      this.dom.xWrapper.style.maxWidth = `calc(100% - ${this.dom.stickyColumn.offsetWidth}px`;
-      this.dom.yWrapper.style.height = `calc(100% - ${this.dom.stickyHeader.offsetHeight}px`;
-      
+      this.resizeWrapper()
       this.oldWrapperSize = wrapperSize;
-      this.onScrollX()
     }
 
+  }
+
+  resizeCellTable() {
+    this.setRowHeights();
+    this.setColumnWidths();
+  }
+
+  resizeWrapper() {
+    this.setScrollBarDims();
+    this.setScrollBarWrapperDims();
+    this.setScrollData();
+    this.handleScroll();
+
+    this.dom.xWrapper.style.maxWidth = `calc(100% - ${this.dom.stickyColumn.offsetWidth}px`;
+    this.dom.yWrapper.style.height = `calc(100% - ${this.dom.stickyHeader.offsetHeight}px`;
+      
+    this.onScrollX()
   }
 
   /**
